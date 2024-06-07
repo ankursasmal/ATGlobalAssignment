@@ -5,8 +5,7 @@
   let [spenner,setspenner]=useState(true)
 
 let [user,setuser]=useState([]);
-let [show,setshow]=useState(false);
-let [see,setsee]=useState(true)
+ let [see,setsee]=useState(true)
 let[Filteruser,setFilteruser]=useState([]);
  let [shownUserId, setShownUserId] = useState(null);
 
@@ -37,24 +36,12 @@ useEffect(()=>{
    },[])
  
  
+  //  onclick userDetail appear in rigth side
    let handelShowDetail = (e, userId) => {
     e.preventDefault();
      setShownUserId(prevUserid => prevUserid === userId ? null : userId);
-     show?setshow(false):setshow(true)
-  }
-
-// // take id to show single users detail
-// let hendelAnotherPage=(e)=>{
-//   e.preventDefault();
-//  const newId = e.target.getAttribute('value');
-// setid(newId);
-
-// // if(user.includes(newId)){
-// //   show?setshow(false):setshow(true)
-// //  }
-//  }
-// console.log(id)
-
+   }
+ 
 
   
  return (
@@ -76,7 +63,7 @@ useEffect(()=>{
     <div key={i}  className='shadow-lg p-3 mb-5 bg-body rounded' style={{display:'flex',alignItems:'center',justifyContent:'center',margin:'15 20',}}   >
     <div  className='m-3 ' style={{width:'36vw' ,display:'flex',flexDirection:'column',alignItems:'center' }}  >
           <img src={values.avatar} className='rounded-circle' style={{width:'20vw',height:'20vw'}} value={values.id} onClick={(e) => handelShowDetail(e, values.id)}/>
-          {!show? <h1   style={{fontWeight:'600',fontSize:'4vw',color:'#3495e1'}}>{values.profile.firstName || ""} {" "}{values.profile.lastName || ""}</h1>:null}
+        <h1 style={{fontWeight:'600',fontSize:'4vw',color:'#3495e1'}}>{values.profile.firstName || ""} {" "}{values.profile.lastName || ""}</h1>
 
           </div>
   {/*  show on click */}
